@@ -131,5 +131,47 @@ div[app] {
     margin-bottom: 2rem;
 }
 
+form[create] {
+    border: none;
+    box-shadow: none;
+
+    margin: 0;
+    padding: 0;
+}
+
+form[create] { display: none; }
+form[create] textarea,
+form[create] input  {
+    resize: none;
+    width: 100%;
+}
+
+form[create] div {
+    border: 1px solid #efefef;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+form[create] label > span {
+    font-weight: 300;
+    color: #666666;
+    margin-right: 5px;
+}
+
+form[create] label > span:hover {
+    color: tomato;
+}
+
+@media screen and (max-width: 900px) {
+    div[app] {
+        width: 100%;
+        min-height: 50vh;
+        display: flex;
+        flex-flow: column;
+        margin-bottom: 2rem;
+    }
+}
+
+
 div[app] h3 { font-size: 1.6rem; }
 div[app] div { display: block; }
