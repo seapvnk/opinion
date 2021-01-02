@@ -1,6 +1,7 @@
 <?php
 
 define('ROOT_PATH', str_replace('/src/config', '', __DIR__));
+define('HOST', 'http://localhost');
 
 session_start();
 
@@ -16,4 +17,22 @@ foreach ($autoload as $dir) {
             include ROOT_PATH . $dir . "/{$file}";
         }
     }
+}
+
+// rotas não protegidas
+$guest = [
+    'login',
+    'register',
+    'index'
+];
+
+$includeInfo = debug_backtrace();
+$filename = pathinfo($includeInfo[0]['file'], PATHINFO_FILENAME);
+
+if (isset($_SESSION['user']) && in_array($filename, $guest)) {
+    header('location:' . HOST . '/app.php');
+    exit;
+} else if (!isset($_SESSION['user']) && !in_array($filename, $guest)) {
+    header('location:' . HOST . '/index.php');
+    exit;
 }
