@@ -132,7 +132,7 @@ class Model
         Database::execute($sql);
     }
 
-    public function count($filters = [])
+    public static function count($filters = [])
     {
         $result = static::select($filters, 'COUNT(*) AS COUNT');
         return (int) $result->fetch_assoc()['COUNT'];

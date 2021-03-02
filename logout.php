@@ -1,8 +1,8 @@
-    <?php
+<?php
 
-    include 'src/config/config.php';
+include 'src/config/config.php';
 
-    $_SESSION = [];
-    session_destroy();
+$_SESSION = [];
+session_destroy();
 
-    header('location: index.php');
+header('location: index.php');
