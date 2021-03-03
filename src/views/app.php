@@ -14,6 +14,7 @@
 
             <label for="title">Título</label>
             <input type="text" name="title">
+            <input type="hidden" name="create_votation">
 
             <label for="description">Descrição</label>
             <textarea name="description" id="description"></textarea>

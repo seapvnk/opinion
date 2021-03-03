@@ -7,6 +7,5 @@ class Poll extends Model
         'id',
         'title',
         'description',
-        'email',
     ];
 }
