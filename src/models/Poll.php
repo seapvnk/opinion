@@ -7,5 +7,6 @@ class Poll extends Model
         'id',
         'title',
         'description',
+        'user_id',
     ];
 }

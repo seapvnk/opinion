@@ -4,12 +4,12 @@ include 'src/config/config.php';
 
 $user = unserialize($_SESSION['user']);
 
-
 include 'src/views/default.php';
 
-// todo - create votation
+// create votation
 if (isset($_POST['create_votation'])) {
     $poll = new Poll([
+        "user_id" => $user->id,
         "title" => $_POST['title'],
         "description" => $_POST['description'],
     ]);
@@ -24,6 +24,13 @@ if (isset($_POST['create_votation'])) {
         ]))->insert();
     }
 }
+
+// get a random votation
+$quantity = Poll::count();
+
+$randomPoll = Poll::getRandom();
+$randomPollCreator = User::one(["id" => $randomPoll->id]);
+$randomPollOptions = Option::all(["poll_id" => $randomPoll->id]);
 
 include 'src/views/app.php';
 include 'src/views/footer.php';

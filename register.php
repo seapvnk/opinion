@@ -2,7 +2,6 @@
 
 include 'src/config/config.php';
 
-// tenta cadastrar um usuário
 $hasCreatedUser = false;
 
 if (isset($_POST) && count($_POST) > 0) {

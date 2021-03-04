@@ -102,6 +102,17 @@ class Model
         return $result;
     }
 
+    public static function getRandom($filters = [])
+    {
+        $sql = "SELECT * FROM "
+                . static::$table 
+                . " ORDER BY RAND() LIMIT 1;";
+
+        $result = Database::query($sql);        
+        $class = get_called_class();
+        return $result? new $class($result->fetch_assoc()) : null;
+    }
+
     public function insert()
     {
         $sql = "INSERT INTO " . static::$table .  " ("

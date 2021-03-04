@@ -34,15 +34,15 @@
         </form>
         
         <div vote>
-            <h3>Lorem, ipsum dolor.</h3>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus amet at ipsam iure quos voluptatibus, molestiae dolor, dolorum a reprehenderit itaque veniam fugit architecto. Soluta et delectus porro veniam vel?
-            </p>
+            <h3><?= html_entity_decode($randomPoll->title) ?></h3>
+            <p><?= html_entity_decode($randomPoll->description) ?></p>
 
             <div>
-                <a href="vote.php?id=votacao_id&op=1"><strong>Lorem, ipsum dolor.</strong></a>
-                <a href="vote.php?id=votacao_id&op=2"><strong>Lorem, ipsum dolor.</strong></a>
-                <a href="vote.php?id=votacao_id&op=3"><strong>Lorem, ipsum dolor.</strong></a>
+                <?php foreach ($randomPollOptions as $option): ?>
+                    <a href="vote.php?v={<?= $option->id ?>}">
+                        <strong><?= html_entity_decode($option->name) ?></strong>
+                    </a>
+                <?php endforeach ?>
             </div>
 
             <a href="">Próxima</a>
