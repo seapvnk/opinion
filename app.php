@@ -17,6 +17,8 @@ if (isset($_POST['create_votation'])) {
     $poll->insert();
 
     foreach ($_POST['option'] as $option) {
+        if (!$option) continue;
+
         (new Option([
             "name" => $option,
             "poll_id" => $poll->id,

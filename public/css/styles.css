@@ -30,6 +30,23 @@ body {
     .col, .row {flex-flow: column;}
 }
 
+.nav {
+    padding: 1rem 2rem;
+    border-bottom: #ddd 1px solid;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+}
+
+@media screen and (min-width: 1200px) {
+    .nav {
+        padding: 1rem 25vw;
+    }   
+}
+
+.nav a {
+    display: block;
+}
 
 .container {
     padding: 2rem;

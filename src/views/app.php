@@ -1,11 +1,13 @@
+<div class="nav">
+    <a href="#" open-vote>votar</a>
+    <a href="#" open-form>criar votação</a>
+    <a href="dashboard.php">minhas votações</a>
+    <a href="logout.php">sair</a>
+</div>
+
 <div class="container landing">
     <h1>Opinion</h1>
     <h2>Bem vindo, <?= html_entity_decode($user->username) ?>!</h2>
-
-    <a href="#" open-vote>votar</a> |
-    <a href="#" open-form>criar votação</a> |
-    <a href="dashboard.php">minhas votações</a> | 
-    <a href="logout.php">sair</a>
     
     <div app>
         <form action="#" method="POST" create>
@@ -34,18 +36,22 @@
         </form>
         
         <div vote>
-            <h3><?= html_entity_decode($randomPoll->title) ?></h3>
-            <p><?= html_entity_decode($randomPoll->description) ?></p>
+            <?php if ($randomPoll->getValues()): ?>
+                <h3><?= html_entity_decode($randomPoll->title) ?></h3>
+                <p><?= html_entity_decode($randomPoll->description) ?></p>
 
-            <div>
-                <?php foreach ($randomPollOptions as $option): ?>
-                    <a href="vote.php?v={<?= $option->id ?>}">
-                        <strong><?= html_entity_decode($option->name) ?></strong>
-                    </a>
-                <?php endforeach ?>
-            </div>
+                <div>
+                    <?php foreach ($randomPollOptions as $option): ?>
+                        <a href="vote.php?v=<?= $option->id ?>">
+                            <strong><?= html_entity_decode($option->name) ?></strong>
+                        </a>
+                    <?php endforeach ?>
+                </div>
 
-            <a href="">Próxima</a>
+                <a href="">Próxima</a>
+            <?php else: ?>
+                <h3>Nada para votar...</h3>
+            <?php endif; ?>
         </div>
 
     </div>
