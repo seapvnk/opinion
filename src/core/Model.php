@@ -88,7 +88,7 @@ class Model
     {
         $class = get_called_class();
         $result =  static::select($filters, $columns);
-        return $result? new $class($result->fetch_assoc()) : null;
+        return $result? new $class($result->fetch_assoc(), false) : null;
     }
 
     public static function select($filters = [], $columns = '*')
