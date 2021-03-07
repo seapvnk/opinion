@@ -1,9 +1,4 @@
-<div class="nav">
-    <a href="#" open-vote>votar</a>
-    <a href="#" open-form>criar votação</a>
-    <a href="dashboard.php">minhas votações</a>
-    <a href="logout.php">sair</a>
-</div>
+<?php include 'partials/nav.php'; ?>
 
 <div class="container landing">
     <h1>Opinion</h1>
@@ -38,10 +33,11 @@
         <div vote>
             <?php if ($randomPoll->getValues()): ?>
                 <h3><?= html_entity_decode($randomPoll->title) ?></h3>
+                <h4>Criado por <?= $randomPoll->user()->username ?></h4>
                 <p><?= html_entity_decode($randomPoll->description) ?></p>
 
                 <div>
-                    <?php foreach ($randomPollOptions as $option): ?>
+                    <?php foreach ($randomPoll->options() as $option): ?>
                         <a href="vote.php?v=<?= $option->id ?>">
                             <strong><?= html_entity_decode($option->name) ?></strong>
                         </a>

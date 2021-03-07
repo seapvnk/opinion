@@ -91,13 +91,14 @@ class Model
         return $result? new $class($result->fetch_assoc(), false) : null;
     }
 
-    public static function select($filters = [], $columns = '*')
+    public static function select($filters = [], $columns = '*', $desc = true)
     {
         $sql = "SELECT $columns FROM "
                 . static::$table . " "
                 . static::filters($filters);
 
-        $result = Database::query($sql);
+                // var_dump($sql);
+        $result = Database::query($sql . ($desc? " ORDER BY id DESC" : "") );
 
         return $result;
     }

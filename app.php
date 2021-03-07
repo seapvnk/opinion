@@ -29,10 +29,7 @@ if (isset($_POST['create_votation'])) {
 
 // get a random votation
 $quantity = Poll::count();
-
 $randomPoll = Poll::getRandom();
-$randomPollCreator = User::one(["id" => $randomPoll->id]);
-$randomPollOptions = Option::all(["poll_id" => $randomPoll->id]);
 
 include 'src/views/app.php';
 include 'src/views/footer.php';
