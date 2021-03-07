@@ -5,8 +5,9 @@
 
 
 <?php if ($deletedPoll): ?>
-<div style="border: 1px solid springgreen; color: springgreen;">
-</div>
+    <div style="color: springgreen;">
+        Votação encerrada com sucesso!
+    </div>
 <?php endif ?>
 
 <div class="container landing">

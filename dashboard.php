@@ -9,11 +9,15 @@ $deletedPoll = false;
 if ($_GET && $_GET['d']) {
     $poll = Poll::one([ "id" => $_GET['d' ]]);
     if ($poll->getValues() && $poll->user_id == $user->id) {
+        
         $poll->delete();
         $deletedPoll = true;
+
+    } else {
         
         header('location: dashboard.php');
         exit;
+
     }
 }
 
