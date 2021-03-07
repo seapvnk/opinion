@@ -4,6 +4,11 @@
 </div>
 
 
+<?php if ($deletedPoll): ?>
+<div style="border: 1px solid springgreen; color: springgreen;">
+</div>
+<?php endif ?>
+
 <div class="container landing">
     <h1>Dashboard</h1>
     <h2>Veja as votações criadas por você</h2>
@@ -16,7 +21,7 @@
             <img src='<?= $poll->getChart() ?>'>
             <br>
             
-            <button>Encerrar votação</button>
+            <a style="color: tomato" href="?d=<?= $poll->id ?>">Encerrar votação</a>
             <hr>
         </span>
     <?php endforeach ?>
